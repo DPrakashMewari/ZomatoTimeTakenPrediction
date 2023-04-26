@@ -6,6 +6,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
 
+from src.components.data_transformation import DataTransformation,DataTransformationConfig 
 
 @dataclass
 class DataIngestionConfig:
@@ -19,6 +20,7 @@ class DataIngestion:
     def initiate_ingestion(self):
         logging.info('Data Ingestion started')
         try:
+            # Reading Final Data -- Zomato Time Taken Dataset  
             df=pd.read_csv(os.path.join('notebooks/data','clean_data.csv'))
             logging.info('Dataset read as pandas Dataframe')
 
@@ -42,4 +44,6 @@ class DataIngestion:
         
 if __name__  ==  "__main__":
     obj = DataIngestion()
-    obj.initiate_ingestion()
+    train_path,test_path = obj.initiate_ingestion()
+    data_tranformation = DataTransformation()
+    data_tranformation.initate_transformation(train_path,test_path)
