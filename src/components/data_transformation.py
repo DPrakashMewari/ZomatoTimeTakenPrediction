@@ -10,6 +10,8 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder,StandardScaler
 import os
 from src.utils import save_object
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning) 
 
 
 @dataclass
