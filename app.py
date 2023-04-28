@@ -16,22 +16,24 @@ def predictdata():
         return render_template('index.html',results=0)
 
     else:
+        req = request.form
+        print(req)
         ## Static Pass Values
         data = CustomData(
-            Age=22,
-            DeliveryPersonRating=3,
-            VechileCondition=1,
-            MultipleDeliveries= 1,
-            Total_Ordering_PickupTime=20,
-            Year=2023,
-            Month=12,
-            Day=22,
-            WeatherCondtion='Sunny',
-            RoadTrafficCondition='Low',
-            Typeofvechile='electric_scooter',
-            Typeoforder='Meal',
-            Festival='No',
-            City='Urban',
+            Age=req['Age'],
+            DeliveryPersonRating=req['DeliveryPersonRating'],
+            VechileCondition=req['VechileCondition'],
+            MultipleDeliveries= req['MultipleDeliveries'],
+            Total_Ordering_PickupTime=req['Total_Ordering_PickupTime'],
+            Year=req['Year'],
+            Month=req['Month'],
+            Day=req['Day'],
+            WeatherCondtion=req['Weather'],
+            RoadTrafficCondition=req['RoadTrafficCondition'],
+            Typeofvechile=req['Typeofvechile'],
+            Typeoforder=req['Typeoforder'],
+            Festival=req['Festival'],
+            City=req['City'],
      
         )
          
