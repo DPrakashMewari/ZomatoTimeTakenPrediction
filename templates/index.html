@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Zomato Time Take Prediction!</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-dark">
+        <a class="navbar-brand text-white" href="#">
+          Zomato Time Take Prediction
+        </a>
+      </nav>
+<section>
+<div class="d-flex justify-content-center container">
+  <p class="h1">  {{results if results !=0 }} </p>
+</div>
+</section>
+<div class="d-flex justify-content-left container">
+<form action="{{ url_for('predictdata')}}" method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Age</label>
+    <input type="number" class="form-control" name= "Age" required>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">DeliveryPersonRating</label>
+    <input type="number" class="form-control" name="DeliveryPersonRating" >
+    <small> Give Rating On the Scale of 5 </small>
+  </div>
+  <div class="form-group ">
+    <label for="exampleInputPassword1">Vechile Condition </label>
+    <input type="number"  class="form-control"  name="VechileCondition">
+    <small>Condtion Type:  Good - 0 , Excellent - 1 , Average - 2 , Poor - 3 </small>
+  </div>
+
+  <div class="form-group ">
+    <label for="exampleInputPassword1">Multiple Deliveries </label>
+    <input type="number" class="form-control" name="MultipleDeliveries">
+    <small>How Many Delivery Delivered</small>
+  </div>
+
+  <div class="form-group ">
+    <label for="exampleInputPassword1">Total Ordering Pickup Time </label>
+    <input type="number" class="form-control" name="Total_Ordering_PickupTime">
+    <small>Total Time</small>
+  </div>
+
+  <div class="form-group ">
+    <label for="exampleInputPassword1">Year</label>
+    <input type="number" class="form-control" name="Year">
+  </div>
+
+  <div class="form-group ">
+    <label for="exampleInputPassword1">Month</label>
+    <input type="number" class="form-control" name="Month">
+  </div>
+  
+  
+  <div class="form-group ">
+    <label for="exampleInputPassword1">Day</label>
+    <input type="number" class="form-control" name="Day">
+  </div>
+
+
+  <div class="form-group">
+  <select name="Weather" class="form-control form-select">
+    <option value="Fog">Fog</option>
+    <option value="Sandstorms">Sandstorms</option>
+    <option value="Sunny">Sunny</option>
+    <option value="Windy">Windy</option>
+    <option value="Stormy">Stormy</option>
+  </select>
+  </div>
+
+  <div class="form-group">
+    <select name="RoadTrafficCondition" class="form-control form-select">
+      <option selected disabled>Select Traffic Density</option>
+      <option value="Jam">Jam</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+
+    </select>
+    </div>
+  
+    <div class="form-group">
+        <select name="Typeoforder" class="form-control form-select">
+          <option selected disabled>Choose Type of Order</option>
+          <option value="Drinks">Drink</option>
+          <option value="Meal">Meal</option>
+          <option value="Buffet">Buffet</option>
+          <option value="Snack">Snack</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <select name="Typeofvechile" class="form-control form-select">
+          <option selected disabled>Choose Type of Vechile</option>
+          <option value="electric_scooter">Electric Scooter</option>
+          <option value="scooter">Motorcycle</option>
+          <option value="bicycle">bicycle</option>
+          <option value="scooter">scooter</option>
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <select name="Festival" class="form-control form-select">
+          <option selected disabled>Is Festival On that Day</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+
+        </select>
+    </div>
+    <div class="form-group">
+        <select name="City" class="form-control form-select">
+          <option selected disabled>Choose Type of City</option>
+          <option value="Metropolitian">Metropolitian</option>
+          <option value="Urban">Urban</option>
+          <option value="Semi-Urban">Semi-urban</option>
+        </select>
+    </div>
+
+
+  <button type="submit" class="btn btn-primary">Predict</button>
+</form>
+</div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>
