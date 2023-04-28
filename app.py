@@ -17,8 +17,6 @@ def predictdata():
 
     else:
         req = request.form
-        print(req)
-        ## Static Pass Values
         data = CustomData(
             Age=req['Age'],
             DeliveryPersonRating=req['DeliveryPersonRating'],
